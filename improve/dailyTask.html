@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Task</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="top-row">
+      <h2>📅 Day <span id="taskDay"></span> Task</h2>
+    </header>
+
+    <section class="panel task-panel">
+      <p id="scenarioText"></p>
+
+      <!-- Options will be dynamically inserted here -->
+      <div id="optionsContainer" class="row" style="gap:12px; flex-direction:column;"></div>
+
+      <!-- Penguin Tip -->
+      <div id="penguinTip" class="penguin-tip" style="display:none; margin-top:12px;"></div>
+    </section>
+
+    <div style="margin-top:16px;">
+      <button onclick="location.href='game.html'">⬅ Back to Game</button>
+    </div>
+  </div>
+
+  <script src="js/taskScript.js"></script>
+</body>
+</html>

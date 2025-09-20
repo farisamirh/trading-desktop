@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Import & Export Game — Trading Hub</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <header class="top-row">
+      <div>
+        <h1>Import & Export — Trading Hub</h1>
+        <p class="muted">Day <span id="dayNumber">1</span>  •  Balance: RM <span id="balanceDisplay">0</span></p>
+      </div>
+      <div class="top-buttons">
+        <button id="resetBtn">Start New Game</button>
+        <button id="toggleRulesBtn">Show Instructions</button>
+      </div>
+    </header>
+
+    <!-- In-game instructions -->
+    <div id="rulesBox" style="display:none;" class="panel">
+      <h3>📜 Game Instructions</h3>
+      <ul>
+        <li>You start with RM 5000.</li>
+        <li>Each day you can Import/Export as many times as you like before proceeding.</li>
+        <li>Exchange rates change daily.</li>
+        <li>Each day has a unique task scenario with different outcomes.</li>
+        <li>Game lasts 7 days → then see your results.</li>
+      </ul>
+    </div>
+
+    <!-- progress bar -->
+    <div class="progress-container">
+      <div id="progressBar">Day <span id="progressText">1</span> / 7</div>
+    </div>
+
+    <section class="panel trade-panel">
+      <h2>Trade</h2>
+
+      <div class="row">
+        <label>Action
+          <select id="tradeType">
+            <option value="import">Import</option>
+            <option value="export">Export</option>
+          </select>
+        </label>
+
+        <label>Country
+          <select id="countrySelect"></select>
+        </label>
+
+        <label>Item
+          <select id="itemSelect"></select>
+        </label>
+
+        <label>Quantity
+          <input id="quantityInput" type="number" min="1" value="1">
+        </label>
+      </div>
+
+      <p id="calcResult" class="calc"></p>
+
+      <div class="row">
+        <button id="confirmBtn">Confirm (Import/Export)</button>
+        <button id="showRatesBtn">Show Today's Exchange Rates</button>
+        <button id="proceedTaskBtn">Proceed to Daily Task</button>
+      </div>
+
+      <div id="ratesTableContainer" class="rates" style="display:none;">
+        <h4>Exchange Rates & Example Prices</h4>
+        <table id="ratesTable"></table>
+      </div>
+
+    </section>
+
+    <section class="panel chart-panel">
+      <h3>Balance over time</h3>
+      <canvas id="balanceChart" height="120"></canvas>
+    </section>
+
+    <section class="panel history-panel">
+      <h3>Trade & Task History</h3>
+      <table id="historyTable">
+        <thead>
+          <tr><th>Day</th><th>Action</th><th>Item / Scenario</th><th>Country</th><th>Qty</th><th>Change</th></tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <!-- penguin mascot -->
+  <div id="penguinContainer">
+    <img id="penguinImg" src="penguin.webp" alt="Penguin mascot">
+    <div id="penguinTip" class="penguin-tip" style="display:none"></div>
+  </div>
+
+  <script src="js/gameScript.js"></script>
+</body>
+</html>

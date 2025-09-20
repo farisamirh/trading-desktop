@@ -1,0 +1,164 @@
+:root{
+  --container-bg: rgba(255,255,255,0.92);
+  --accent: #0077cc;
+  --good: #18a558;
+  --bad: #e74c3c;
+  --muted: #666;
+}
+
+/* Full-page background */
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #b6e1ff;
+  color: #222;
+}
+
+/* Container */
+.container {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 18px;
+  background: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Top row header */
+.top-row {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.top-row h1 { margin: 0; }
+.top-row .muted { color: var(--muted); margin-top:4px; font-size:0.95rem; }
+
+.top-buttons button { margin-left:8px; }
+
+/* Progress bar */
+.progress-container {
+  width: 100%;
+  background: #eee;
+  border-radius: 10px;
+  height: 22px;
+  margin: 12px 0;
+  overflow: hidden;
+}
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  transition: width .4s ease;
+}
+
+/* Panels */
+.panel { padding: 12px 10px; margin-top: 14px; border-radius: 8px; background: rgba(255,255,255,0.6); }
+.trade-panel .row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+label { display:flex; flex-direction:column; font-size:0.95rem; }
+input[type=number], select { padding:8px; border-radius:6px; border:1px solid #ccc; min-width:140px; }
+
+/* Buttons */
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight:600;
+}
+button:hover { filter: brightness(.95); }
+
+/* Calculation text */
+.calc { font-weight:700; margin:10px 0; }
+
+/* Rates table */
+.rates table { width: 100%; border-collapse: collapse; }
+.rates th, .rates td { padding:8px 10px; border:1px solid #ddd; text-align:left; }
+
+/* History table */
+#historyTable { width:100%; border-collapse: collapse; }
+#historyTable th, #historyTable td { padding:8px 10px; border:1px solid #ddd; text-align:center; font-size:0.95rem; }
+.profit { color: var(--good); font-weight:700; }
+.loss { color: var(--bad); font-weight:700; }
+.task-row { background: #eaf6ff; font-weight:700; }
+
+/* Daily task option buttons */
+#optionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+#optionsContainer button {
+  flex: 1 1 auto;  /* grow/shrink equally */
+  min-width: 140px;
+  max-width: 220px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Penguin mascot */
+#penguinContainer {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2000;
+  text-align:center;
+}
+#penguinImg { width: 92px; cursor:pointer; transition: transform .15s ease; }
+#penguinImg:hover { transform: scale(1.06); }
+.penguin-tip {
+  margin-top:8px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding:10px;
+  border-radius:8px;
+  max-width:220px;
+  font-size:0.95rem;
+  text-align:left;
+}
+
+/* ==========================
+   Penguin mascot (results page)
+========================== */
+#penguinMascot {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  z-index: 3000;
+}
+#penguinMascot:hover { transform: scale(1.1); filter: brightness(1.1); }
+
+#penguinFinalTip {
+  position: fixed;
+  right: 20px;
+  bottom: 110px;
+  max-width: 240px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-align: left;
+  display: none;
+  z-index: 3000;
+}
+
+#netPL {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
